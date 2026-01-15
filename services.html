@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Services | Business Pro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">Business Pro</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
+
+  <!-- SERVICES -->
+  <section>
+    <h2 class="section-title">Our Service Packages</h2>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <h3>Starter Package</h3>
+        <p>Basic business listing and exposure.</p>
+        <p class="price">₹999</p>
+        <button class="btn" onclick="addToCart('Starter Package', 999)">Add to Cart</button>
+      </div>
+
+      <div class="service-card">
+        <h3>Professional Package</h3>
+        <p>Enhanced visibility and collaboration tools.</p>
+        <p class="price">₹1999</p>
+        <button class="btn" onclick="addToCart('Professional Package', 1999)">Add to Cart</button>
+      </div>
+
+      <div class="service-card">
+        <h3>Enterprise Package</h3>
+        <p>Complete business solutions and priority support.</p>
+        <p class="price">₹2999</p>
+        <button class="btn" onclick="addToCart('Enterprise Package', 2999)">Add to Cart</button>
+      </div>
+
+    </div>
+
+    <!-- CART -->
+    <div class="cart">
+  <h3>Cart</h3>
+  <ul id="cart-items"></ul>
+  <p><strong>Total: ₹<span id="total">0</span></strong></p>
+</div>
+
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Business Pro. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

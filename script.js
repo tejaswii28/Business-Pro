@@ -36,3 +36,55 @@ if (signupForm) {
     }
   });
 }
+let cart = {};
+let total = 0;
+
+function addToCart(service, price) {
+  if (cart[service]) {
+    cart[service].quantity++;
+  } else {
+    cart[service] = { price: price, quantity: 1 };
+  }
+  updateCart();
+}
+
+function increment(service) {
+  cart[service].quantity++;
+  updateCart();
+}
+
+function decrement(service) {
+  cart[service].quantity--;
+  if (cart[service].quantity === 0) {
+    delete cart[service];
+  }
+  updateCart();
+}
+
+function updateCart() {
+  const cartItems = document.getElementById("cart-items");
+  cartItems.innerHTML = "";
+  total = 0;
+
+  for (let service in cart) {
+    const li = document.createElement("li");
+    const itemTotal = cart[service].price * cart[service].quantity;
+    total += itemTotal;
+
+    li.innerHTML = `
+      ${service} (₹${cart[service].price}) × ${cart[service].quantity}
+      <button onclick="increment('${service}')">+</button>
+      <button onclick="decrement('${service}')">−</button>
+    `;
+    cartItems.appendChild(li);
+  }
+
+  document.getElementById("total").textContent = total;
+}
+function submitFeedback(event) {
+  event.preventDefault();
+  alert("Thank you for your feedback!");
+  event.target.reset();
+}
+
+

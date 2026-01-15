@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Feedback | Business Pro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">Business Pro</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
+
+  <!-- FEEDBACK SECTION -->
+  <section class="feedback-section">
+    <h2 class="section-title">Feedback</h2>
+    <p>We’d love to hear your thoughts about Business Pro.</p>
+
+    <form class="feedback-form" onsubmit="submitFeedback(event)">
+      
+      <label>Rate your experience:</label>
+      <div class="rating">
+        <input type="radio" name="rating" value="5" required> ⭐⭐⭐⭐⭐
+        <input type="radio" name="rating" value="4"> ⭐⭐⭐⭐
+        <input type="radio" name="rating" value="3"> ⭐⭐⭐
+        <input type="radio" name="rating" value="2"> ⭐⭐
+        <input type="radio" name="rating" value="1"> ⭐
+      </div>
+
+      <textarea placeholder="Write your feedback here..." rows="5" required></textarea>
+
+      <button type="submit" class="btn">Submit Feedback</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Business Pro. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -209,4 +209,140 @@ footer {
 .auth-btn:hover {
   opacity: 0.9;
 }
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10%;
+  background: #1d2671;
+}
+
+.logo {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+/* CONTACT PAGE */
+.contact-section {
+  max-width: 700px;
+  margin: auto;
+  padding: 40px 10%;
+}
+
+.contact-text {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  color: #555;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #1d2671;
+}
+/* SERVICES PAGE */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.service-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+/* CART */
+.cart {
+  margin-top: 40px;
+  padding: 20px;
+  background: #f4f6ff;
+  border-radius: 12px;
+}
+
+.cart ul {
+  list-style: none;
+  padding: 0;
+}
+
+.cart li {
+  margin-bottom: 10px;
+}
+.cart button {
+  margin-left: 5px;
+  padding: 2px 8px;
+  border: none;
+  background: #1d2671;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cart button:hover {
+  opacity: 0.8;
+}
+/* FEEDBACK PAGE */
+.feedback-section {
+  max-width: 700px;
+  margin: auto;
+  padding: 40px 10%;
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.rating {
+  display: flex;
+  gap: 10px;
+  font-size: 1.1rem;
+}
+
+.feedback-form textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
 
