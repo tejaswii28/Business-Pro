@@ -1,41 +1,68 @@
+// =====================
+// UTIL: EMAIL VALIDATION
+// =====================
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+// =====================
 // LOGIN FORM
+// =====================
 const loginForm = document.querySelector("#auth .auth-box form");
 
 if (loginForm) {
   loginForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const email = this.querySelector("input[type='email']").value;
-    const password = this.querySelector("input[type='password']").value;
+    const email = this.querySelector("input[type='email']").value.trim();
+    const password = this.querySelector("input[type='password']").value.trim();
 
-    if (email === "" || password === "") {
+    if (!email || !password) {
       alert("Please fill in all login fields.");
-    } else {
-      alert("Login successful (frontend demo)");
-      this.reset();
+      return;
     }
+
+    if (!isValidEmail(email)) {
+      alert("Enter a valid email address.");
+      return;
+    }
+
+    alert("Login successful");
+    this.reset();
   });
 }
 
-// SIGN UP FORM
+// =====================
+// SIGNUP FORM
+// =====================
 const signupForm = document.querySelectorAll("#auth .auth-box form")[1];
 
 if (signupForm) {
   signupForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const name = this.querySelector("input[type='text']").value;
-    const email = this.querySelector("input[type='email']").value;
-    const password = this.querySelector("input[type='password']").value;
+    const name = this.querySelector("input[type='text']").value.trim();
+    const email = this.querySelector("input[type='email']").value.trim();
+    const password = this.querySelector("input[type='password']").value.trim();
 
-    if (name === "" || email === "" || password === "") {
+    if (!name || !email || !password) {
       alert("Please fill in all signup fields.");
-    } else {
-      alert("Account created successfully (frontend demo)");
-      this.reset();
+      return;
     }
+
+    if (!isValidEmail(email)) {
+      alert("Enter a valid email address.");
+      return;
+    }
+
+    alert("Account created successfully (frontend demo)");
+    this.reset();
   });
 }
+
+// =====================
+// CART LOGIC
+// =====================
 let cart = {};
 let total = 0;
 
@@ -43,7 +70,7 @@ function addToCart(service, price) {
   if (cart[service]) {
     cart[service].quantity++;
   } else {
-    cart[service] = { price: price, quantity: 1 };
+    cart[service] = { price, quantity: 1 };
   }
   updateCart();
 }
@@ -81,10 +108,35 @@ function updateCart() {
 
   document.getElementById("total").textContent = total;
 }
+
+// =====================
+// FEEDBACK + DOWNLOAD TXT
+// =====================
 function submitFeedback(event) {
   event.preventDefault();
-  alert("Thank you for your feedback!");
-  event.target.reset();
+
+  const form = event.target;
+  const message = form.querySelector("textarea")?.value || "";
+
+  if (!message.trim()) {
+    alert("Feedback cannot be empty.");
+    return;
+  }
+
+  const content = `Feedback Submission
+-------------------
+Message:
+${message}
+`;
+
+  const blob = new Blob([content], { type: "text/plain" });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "feedback.txt";
+  a.click();
+
+  URL.revokeObjectURL(url);
+  form.reset();
 }
-
-
