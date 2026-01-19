@@ -97,6 +97,7 @@ function updateCart() {
     const li = document.createElement("li");
     const itemTotal = cart[service].price * cart[service].quantity;
     total += itemTotal;
+  
 
     li.innerHTML = `
       ${service} (₹${cart[service].price}) × ${cart[service].quantity}
@@ -118,25 +119,17 @@ function submitFeedback(event) {
   const form = event.target;
   const message = form.querySelector("textarea")?.value || "";
 
+  // Validation
   if (!message.trim()) {
     alert("Feedback cannot be empty.");
     return;
   }
 
-  const content = `Feedback Submission
--------------------
-Message:
-${message}
-`;
+  // Success message
+  alert("Thank you for your feedback!");
 
-  const blob = new Blob([content], { type: "text/plain" });
-  const url = URL.createObjectURL(blob);
-
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "feedback.txt";
-  a.click();
-
-  URL.revokeObjectURL(url);
+  // Reset form
   form.reset();
 }
+
+
